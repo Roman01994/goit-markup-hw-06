@@ -762,15 +762,14 @@ address {
 	
 /* FORM */
   .form-title{
-	margin-top: 24px;
-  margin-bottom: 16px;
-      margin-top: 40px;
-	  font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
-text-align: center;
-letter-spacing: 0.02em;
-color: var(--secondary-font-color);
+	margin-top: 48px;
+	margin-bottom: 16px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1.5;
+	text-align: center;
+	letter-spacing: 0.02em;
+	color: var(--secondary-font-color);
   }
 
   .form {
