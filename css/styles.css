@@ -56,9 +56,8 @@ body {
 	max-width: 1158px;
 	padding:0 15px;
 }
-button{
-	cursor:pointer;
-}
+
+
 
 h1,
 h2,
@@ -506,7 +505,7 @@ address {
   }
   .input-block {
 	
-	margin-left: 80px;
+	margin-left: auto;
 }
 
 .call-text {
