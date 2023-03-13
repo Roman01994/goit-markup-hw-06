@@ -479,15 +479,17 @@ address {
 	margin-right: 16px;
   }
 
-  
-.footer .container{
+  .footer{
 	padding:100px 0 100px 0;
+  }
+.footer .container{
+	
 	align-items: baseline;
 	display:flex;
 }
 .footer .social-block{
 	
-	margin-left:120px;
+	margin-left:auto;
 }
   
   .social-block-title {
@@ -507,6 +509,10 @@ address {
 	
 	margin-left: auto;
 }
+.footer-form{
+	display:flex;
+	align-items: center;
+}
 
 .call-text {
 	display: inline-block;
@@ -516,7 +522,7 @@ address {
     line-height: 1.5;
     letter-spacing: 0.02em;
 	color: var(--accent-color);
-	text-transform: uppercase;
+	
 }
 
 .footer-input {
@@ -530,10 +536,23 @@ address {
 	border-radius: 4px;
 	outline: none;
 	color: rgba(255, 255, 255, 0.6);
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
+.form-input::placeholder{
+font-size: 12px;
+line-height: 2.0;
+letter-spacing: 0.04em;
+color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-input:focus{
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-color : var(--active-nav-color);
+}
 .footer-btn {
-	width: 165px;
+	display: flex;
+	min-width: 165px;
 	height: 40px;
 	margin-left: 24px;
 	padding: 8px 24px;
@@ -541,6 +560,7 @@ address {
 	border-radius: 4px;
 	font-style: inherit;
 	text-align: left;	
+	border: none;
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 1.5;
@@ -551,7 +571,7 @@ address {
 }
 
 .btn-icon {
-	position: absolute;
+	
 	margin-left: 16px;
 	width: 24px;
 	height: 24px;
@@ -724,8 +744,8 @@ address {
     
 	max-width: 408px;
 	min-height: 576px;
-	padding: 24px;
-
+	padding: 72px 24px 24px 24px;
+	
 	background: var(--modal-bg-color);
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
@@ -760,7 +780,6 @@ address {
 	
 /* FORM */
   .form-title{
-	margin-top: 48px;
 	margin-bottom: 16px;
 	font-weight: 500;
 	font-size: 16px;
@@ -779,10 +798,12 @@ address {
   }
   
   .form-field {
+	position:relative;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	position: relative;
 	margin-bottom: 8px;
+	
   }
   
 
@@ -800,6 +821,7 @@ fill: var(--product-overlay-bg-color);
 	color: var(--clients-icon-color);
 }
 .form-input{
+	
 	display: inline-block;
 	padding-left: 40px;
 	width: 360px;
@@ -814,10 +836,27 @@ fill: var(--product-overlay-bg-color);
 border-radius: 4px;
 }
 .input-icon{
-	position: absolute;
-	bottom: 8px;
-	left:16px;
+	position: relative;
+	
+	
 }
+.icon-box{
+	position: absolute;
+	margin-left: 16px;
+	top: 50%;
+	transform: translateY(-50%, 50%);
+
+}
+.form-input:focus + .icon-box {
+	color: var(--product-overlay-bg-color);
+}
+
+.icon-box .input-icon {
+	fill: currentColor;
+}
+
+
+
 .comment-field{
 	display: flex;
 	flex-direction: column;
@@ -827,7 +866,7 @@ border-radius: 4px;
 	display: inline-block;
 	resize:none;
 	padding: 8px 16px;
-	width: 360px;
+	max-width: 100%;
 	height: 120px;
 	border: 1px solid rgba(33, 33, 33, 0.2);
 	border-radius: 4px;
@@ -843,54 +882,76 @@ border-color: var(--product-overlay-bg-color);
 	letter-spacing: 0.04em;
 	color: rgba(117, 117, 117, 0.5);
 }
-.form-check{
-	margin-bottom: 24px;
-}
-.checkbox-label{
+
+.checkbox-field{
 	display: flex;
 	align-items: center;
-	margin-left: 8px;
+	
+	margin-top: 16px;
+	
+
+	
+	
+}
+.checkbox-label{
+	margin-left: 0;
 	font-size: 12px;
    line-height: 1.17;
 	letter-spacing: 0.04em;
 
 	color:var(--checkbox-font-color);
+	
+	
 }
 .checkbox-label a{
 	color:var(--logo-color);
 }
 
-.check-input{
+.checkbox-input{
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	position: absolute;
 }
-.check-input:checked + .check-icon{
-	width: 16px;
-	height: 16px;
-	margin-right: 8px;
-	background-image:url('../images/check-active.svg');
+.checkbox{
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+	
+background-image:url('../images/icon-passive.svg');
+
+
+transition: background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.checkbox-input:focus + .checkbox {
+	background-image: url('../images/icon-passive-focus.svg');
+	
+}
+.checkbox-input:checked + .checkbox{
 	background-position: center;
-	border-color: var(--active-nav-color);
-
-}
-
-.check-icon{
-	width: 16px;
-	height: 16px;
-	margin-right: 8px;
+	background-repeat: no-repeat;
 	border: 1.25px solid var(--secondary-bg-color);
-border-radius: 2px;
-/* background-image:url('../images/check-passive.svg'); */
-transform: translateY(-1px);
+    border-radius: 2px;
+	background-color: var(--product-overlay-bg-color);
+	
+	background-image: url('../images/icon-check.svg');
+	
+	
+	
+	
+	
+
 }
-.check-input:focus+.check-icon{
-	border-color: var(--active-nav-color);
+.agreement.link {
+	text-decoration: underline;
+	color:var(--product-overlay-bg-color) ;
 }
+
   .sub-btn{
-	width: 169px;
+	min-width: 169px;
 	height: 56px;
+	margin-top: 24px;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 4px;
@@ -899,7 +960,6 @@ transform: translateY(-1px);
 
 	font-size: 16px;
 	line-height: 1.5;
-	align-items: center;
 	text-align: center;
 	letter-spacing: 0.04em;
 
